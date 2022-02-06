@@ -1,0 +1,38 @@
+<%= form_with url: { action: :import_csv } do |form| %>
+  <fieldset class="inputs">
+    <ol>
+      <li><%= form.label "name" %>
+        <%= form.select "name", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "URL" %>
+        <%= form.select "url", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Asking Price" %>
+        <%= form.select "asking_price", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Revenue" %>
+        <%= form.select "revenue", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Cash Flow" %>
+        <%= form.select "cash_flow", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "name" %>
+        <%= form.select "name", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "EBITDA" %>
+        <%= form.select "ebitda", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "SDE" %>
+        <%= form.select "sde", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Industry" %>
+        <%= form.select "industry", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Business Summary" %>
+        <%= form.select "business_summary", @headers, { include_blank: true } %></li><br>
+
+      <%= form.hidden_field :hide2, value: @data %>
+    </ol>
+  </fieldset>
+  <%= form.submit %>
+<% end %>

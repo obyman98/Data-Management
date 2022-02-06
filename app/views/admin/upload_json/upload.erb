@@ -1,0 +1,11 @@
+<%= form_tag({action: :get_layout}, multipart: true) do %>
+  <fieldset class="inputs">
+    <ol>
+      <li><%= label_tag 'File Upload' %></li>
+      <li><%= file_field_tag 'csv_file' %></li>
+    </ol>
+  </fieldset>
+  <%= submit_tag "Upload JSON" %>
+
+
+<% end %>
