@@ -24,8 +24,8 @@ ActiveAdmin.register List do
   end
 
   collection_action :get_layout, method: :post do
-    @data = File.read(params[:csv_file])
-    @headers = CSV.read(params[:csv_file], headers: true).headers
+    @data = File.read(params[:csv_file], :encoding => 'ISO-8859-1')
+    @headers = CSV.read(params[:csv_file], :encoding => 'ISO-8859-1', headers: true).headers
     render 'admin/upload_json/layout.erb'
   end
 
