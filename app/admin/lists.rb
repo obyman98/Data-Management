@@ -5,7 +5,7 @@ ActiveAdmin.register List do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :url, :city, :state, :asking_price, :revenue, :cash_flow, :ebitda, :sde, :industry, :business_summary
+  permit_params :list_id, :name, :url, :city, :state, :asking_price, :revenue, :cash_flow, :ebitda, :sde, :industry, :business_summary
   #
   # or
   #
@@ -14,6 +14,14 @@ ActiveAdmin.register List do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  filter :name
+  filter :state, as: :select, collection: proc { List.all.map(&:state).compact.uniq }
+  filter :cash_flow, as: :range
+  filter :asking_price, as: :range
+  filter :ebitda, as: :range
+  filter :sde, as: :range
+  filter :revenue, as: :range
 
   action_item only: :index do
     link_to 'Upload File', action: 'upload_json'
@@ -39,6 +47,7 @@ ActiveAdmin.register List do
   index do
     selectable_column
     id_column
+    column :list_id
     column :name
     column :url
     column :city

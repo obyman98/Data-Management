@@ -1,6 +1,9 @@
 <%= form_with url: { action: :import_csv } do |form| %>
   <fieldset class="inputs">
     <ol>
+      <li><%= form.label "List ID" %>
+        <%= form.select "list_id", @headers, { include_blank: true }  %></li><br>
+
       <li><%= form.label "name" %>
         <%= form.select "name", @headers, { include_blank: true } %></li><br>
 
