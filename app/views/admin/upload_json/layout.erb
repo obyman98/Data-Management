@@ -2,7 +2,7 @@
   <fieldset class="inputs">
     <ol>
       <li><%= form.label "List ID" %>
-        <%= form.select "list_id", @headers, { include_blank: true }  %></li><br>
+        <%= form.text_field "list_id" %></li><br>
 
       <li><%= form.label "name" %>
         <%= form.select "name", @headers, { include_blank: true } %></li><br>
@@ -10,11 +10,9 @@
       <li><%= form.label "URL" %>
         <%= form.select "url", @headers, { include_blank: true } %></li><br>
 
-      <li><%= form.label "City" %>
-        <%= form.select "city", @headers, { include_blank: true } %></li><br>
 
-      <li><%= form.label "State" %>
-        <%= form.select "state", @headers, { include_blank: true } %></li><br>
+      <li><%= form.label "Loaction" %>
+        <%= form.select "location", @headers, { include_blank: true } %></li><br>
 
       <li><%= form.label "Asking Price" %>
         <%= form.select "asking_price", @headers, { include_blank: true } %></li><br>
@@ -24,9 +22,6 @@
 
       <li><%= form.label "Cash Flow" %>
         <%= form.select "cash_flow", @headers, { include_blank: true } %></li><br>
-
-      <li><%= form.label "name" %>
-        <%= form.select "name", @headers, { include_blank: true } %></li><br>
 
       <li><%= form.label "EBITDA" %>
         <%= form.select "ebitda", @headers, { include_blank: true } %></li><br>

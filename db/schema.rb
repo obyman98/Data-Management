@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_06_145513) do
+ActiveRecord::Schema.define(version: 2022_03_14_160740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_145513) do
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.text "url"
-    t.string "asking_price"
+    t.integer "asking_price"
     t.string "revenue"
     t.string "cash_flow"
     t.string "ebitda"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2022_02_06_145513) do
     t.text "business_summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "city"
-    t.string "state"
     t.string "list_id"
+    t.string "source"
+    t.string "location"
   end
 
   create_table "users", force: :cascade do |t|

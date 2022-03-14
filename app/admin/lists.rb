@@ -15,13 +15,9 @@ ActiveAdmin.register List do
   #   permitted
   # end
 
-  filter :name
-  filter :state, as: :select, collection: proc { List.all.map(&:state).compact.uniq }
-  filter :cash_flow, as: :range
-  filter :asking_price, as: :range
-  filter :ebitda, as: :range
-  filter :sde, as: :range
-  filter :revenue, as: :range
+  filter :location_multiple_terms, as: :string, label: "Location"
+  filter :asking_price, as: :numeric
+  filter :industry, as: :string
 
   action_item only: :index do
     link_to 'Upload File', action: 'upload_json'
@@ -50,8 +46,7 @@ ActiveAdmin.register List do
     column :list_id
     column :name
     column :url
-    column :city
-    column :state
+    column :location
     column :asking_price
     column :revenue
     column :cash_flow
@@ -59,6 +54,7 @@ ActiveAdmin.register List do
     column :sde
     column :industry
     column :business_summary
+    column :source
     actions
   end
 
