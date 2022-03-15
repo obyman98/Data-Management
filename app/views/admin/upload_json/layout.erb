@@ -2,7 +2,7 @@
   <fieldset class="inputs">
     <ol>
       <li><%= form.label "List ID" %>
-        <%= form.text_field "list_id" %></li><br>
+        <%= form.select "list_id", @headers, { include_blank: true } %></li><br>
 
       <li><%= form.label "name" %>
         <%= form.select "name", @headers, { include_blank: true } %></li><br>
@@ -23,10 +23,10 @@
       <li><%= form.label "Cash Flow" %>
         <%= form.select "cash_flow", @headers, { include_blank: true } %></li><br>
 
-      <li><%= form.label "EBITDA" %>
+      <li><label>EBITDA</label>
         <%= form.select "ebitda", @headers, { include_blank: true } %></li><br>
 
-      <li><%= form.label "SDE" %>
+      <li><label>SDE</label>
         <%= form.select "sde", @headers, { include_blank: true } %></li><br>
 
       <li><%= form.label "Industry" %>
@@ -34,6 +34,9 @@
 
       <li><%= form.label "Business Summary" %>
         <%= form.select "business_summary", @headers, { include_blank: true } %></li><br>
+
+      <li><%= form.label "Source" %>
+        <%= form.select "source", @headers, { include_blank: true } %></li><br>
 
       <%= form.hidden_field :hide2, value: @data %>
     </ol>

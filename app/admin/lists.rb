@@ -44,7 +44,11 @@ ActiveAdmin.register List do
     selectable_column
     id_column
     column :list_id
-    column :name
+    column :name do |article|
+      if article.name
+        truncate(article.name, length: 50)
+      end
+    end
     column :url
     column :location
     column :asking_price
@@ -53,7 +57,11 @@ ActiveAdmin.register List do
     column :ebitda
     column :sde
     column :industry
-    column :business_summary
+    column :business_summary do |article|
+      if article.business_summary
+        truncate(article.business_summary, length: 50)
+      end
+    end
     column :source
     actions
   end
