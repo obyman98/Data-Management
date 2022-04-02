@@ -1,5 +1,7 @@
 ActiveAdmin.register List do
 
+  actions :all, :if => proc { current_user.role == 'admin' }
+  actions :index, :if => proc { current_user.role == 'member' }
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -19,9 +21,10 @@ ActiveAdmin.register List do
   filter :asking_price, as: :numeric
   filter :industry, as: :string
 
-  action_item only: :index do
+  action_item :super_action, only: :index , if: proc{ current_user.role == 'admin' } do
     link_to 'Upload File', action: 'upload_json'
   end
+
 
   collection_action :upload_json do
     render 'admin/upload_json/upload.erb'
@@ -65,6 +68,5 @@ ActiveAdmin.register List do
     column :source
     actions
   end
-
 
 end
